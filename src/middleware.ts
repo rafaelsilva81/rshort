@@ -19,11 +19,4 @@ export async function middleware(req: NextRequest, event: NextFetchEvent) {
 
     console.log('slug??', slug);
   }
-
-  if (req.nextUrl.pathname.startsWith('/api/shorten')) {
-    const domain = process.env.NEXT_PUBLIC_DOMAIN || 'http://localhost:3000';
-    // allow cors
-    req.headers.set('Access-Control-Allow-Origin', domain);
-    return NextResponse.next();
-  }
 }
