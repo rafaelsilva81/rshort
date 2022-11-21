@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { FormEvent, useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import boltIcon from '../assets/bolt.svg';
+import api from '../lib/axios';
 
 export default function Home() {
   const [url, setUrl] = useState('');
@@ -17,17 +18,14 @@ export default function Home() {
       });
       return;
     }
-    const res = await fetch('/api/shorten', {
-      method: 'POST',
-      body: JSON.stringify({ url, slug }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+    const res = await api.post('/api/shorten', {
+      url,
+      slug,
     });
 
-    const { link } = await res.json();
+    const { data } = res;
     // copy to clipboard
-    navigator.clipboard.writeText(link);
+    navigator.clipboard.writeText(data.link);
     toast.success('Copied to clipboard!', {
       autoClose: 3000,
     });
