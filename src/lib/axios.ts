@@ -1,8 +1,12 @@
 import axios from 'axios';
 
+const domain =
+  process.env.NODE_ENV === 'production'
+    ? 'https://raijin.tk'
+    : 'http://localhost:3000';
+
 const api = axios.create({
-  baseURL:
-    `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` || 'http://localhost:3000',
+  baseURL: domain,
 });
 
 export default api;
