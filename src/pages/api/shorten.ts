@@ -49,7 +49,8 @@ const shorten = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   // get domain this is running on
-  const domain = `https://${process.env.VERCEL_URL}` || 'http://localhost:3000';
+  const domain =
+    `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` || 'http://localhost:3000';
   return res.json({ link: `${domain}/s/${slug}` });
 };
 
