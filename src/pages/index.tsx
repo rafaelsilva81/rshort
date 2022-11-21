@@ -104,6 +104,14 @@ export default function Home() {
               Shorten!
             </button>
           </form>
+
+          <div className='flex flex-col mt-10'>
+            <a
+              href='https://github.com/rafaelsilva81/raijin'
+              className='text-white text-lg font-bold'>
+              See the code on Github
+            </a>
+          </div>
         </div>
         <ToastContainer
           position='bottom-center'
