@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import db from '../../lib/prisma';
+import { prisma as db } from '../../../lib/prisma';
 
 const get_url = async (req: NextApiRequest, res: NextApiResponse) => {
   const slug = req.query['slug'];
@@ -28,7 +28,7 @@ const get_url = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  return res.redirect(data.url);
+  return res.json({ url: data.url });
 };
 
 export default get_url;
