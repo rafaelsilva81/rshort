@@ -35,7 +35,7 @@ export default function Home() {
         });
       })
       .catch((e) => {
-        toast.error("An error occurred, please try again later", {
+        toast.error(e.message, {
           autoClose: 3000,
         });
       })
